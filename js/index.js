@@ -7,7 +7,10 @@
 				{x: 0, y: 2.3},
 				{x: 1, y: 3.7},
 				{x: 2, y: 1.4},
-				{x: 3, y: 1.4},
+				{x: 3, y: 7.5},
+				{x: 4, y: 6.1},
+				{x: 5, y: 2.9},
+				{x: 6, y: 3.1},
 			]
 		}, {
 			key: 'negative',
@@ -16,10 +19,13 @@
 				{x: 0, y: 4.9},
 				{x: 1, y: 0.7},
 				{x: 2, y: 2.38},
-				{x: 3, y: 1.4},
+				{x: 3, y: 9.4},
+				{x: 4, y: 2.1},
+				{x: 5, y: 6.4},
+				{x: 6, y: 5.4},
 			]
 		}];
-		wordData = ["Hello", "world", "normally", "you", "want", "more", "words", "than", "this"]
+		wordData = ["hello", "computer", "you", "happy", "want", "more", "storm", "cheer"]
 			.map(function(d) {
 				return {text: d, size: 10 + Math.random() * 90};
 			});
