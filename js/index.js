@@ -1,31 +1,16 @@
 (function() {
-	function processData() {
+	function processData(data) {
 		trendData = [{
 			key: 'positive',
 			color: "#ff7f0e",
-			values: [
-				{x: 0, y: 2.3},
-				{x: 1, y: 3.7},
-				{x: 2, y: 1.4},
-				{x: 3, y: 7.5},
-				{x: 4, y: 6.1},
-				{x: 5, y: 2.9},
-				{x: 6, y: 3.1},
-			]
+			values: data.positive,
 		}, {
 			key: 'negative',
 			color: "#1f77b4",
-			values: [
-				{x: 0, y: 4.9},
-				{x: 1, y: 0.7},
-				{x: 2, y: 2.38},
-				{x: 3, y: 9.4},
-				{x: 4, y: 2.1},
-				{x: 5, y: 6.4},
-				{x: 6, y: 5.4},
-			]
+			values: data.negative,
 		}];
-		wordData = ["hello", "computer", "you", "happy", "want", "more", "storm", "cheer"]
+
+		wordData = data.words
 			.map(function(d) {
 				return {text: d, size: 10 + Math.random() * 90};
 			});
@@ -104,9 +89,15 @@
 	}
 
 	$(document).ready(function() {
-		var graphData = processData();
-		drawTrendChart(graphData.trendData);
-		drawWordCloud(graphData.wordData);
+		$.ajax({
+			url: '/data/',
+			success: function(data) {
+				var graphData = processData(data);
+				drawTrendChart(graphData.trendData);
+				drawWordCloud(graphData.wordData);
+			}
+		});
+		
 	});
 
 })();
